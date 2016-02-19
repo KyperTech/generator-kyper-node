@@ -1,0 +1,49 @@
+{
+  "name": "<%= projectName %>",
+  "version": "<%= version %>",
+  "description": "",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint src",
+    "test": "mocha --compilers js:babel-core/register --reporter spec ./test/*.js ./test/**/*.js",
+    "test:cov": "babel-node $(npm bin)/isparta cover --report lcov ./node_modules/mocha/bin/_mocha -- ./test --recursive",
+    "build:lib": "babel src --out-dir lib",
+    "build": "npm run clean && npm run build:lib",
+    "watch:lib": "npm run build:lib -- --stats --progress --colors --watch",
+    "watch": "npm run watch:lib",
+    "prepublish": "npm run clean && npm run build",
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon ./lib/server.js",
+    "production": "NODE_ENV=production ./node_modules/.bin/forever -m 5 ./lib/server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "forever": "^0.15.1",
+    "method-override": "^2.3.5"
+  },
+  "devDependencies": {
+    "babel": "^6.5.1",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.1",
+    "babel-eslint": "^5.0.0-beta4",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
+    "eslint": "^1.10.3",
+    "isparta": "^4.0.0",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
+    "rimraf": "^2.5.1",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0"
+  }
+}
