@@ -1,19 +1,25 @@
-'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
+/* global describe, it, before */
+'use strict'
+var path = require('path')
+var assert = require('yeoman-assert')
+var helpers = require('yeoman-generator').test
 
-describe('generator-kyper-node:app', function () {
-  before(function (done) {
+describe('Main generator', () => {
+  before((done) => {
     helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({someOption: true})
       .withPrompts({someAnswer: true})
-      .on('end', done);
-  });
+      .on('end', done)
+  })
 
-  it('creates files', function () {
+  it('creates server file', () => {
     assert.file([
-      'dummyfile.txt'
-    ]);
-  });
-});
+      'src/server.js'
+    ])
+  })
+  it('creates config files', () => {
+    assert.file([
+      'src/config/routes.js'
+    ])
+  })
+})
