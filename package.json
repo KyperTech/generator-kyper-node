@@ -1,6 +1,6 @@
 {
   "name": "generator-kyper-node",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS starter with ES6",
   "scripts": {
     "test": "mocha -R spec --compilers js:babel-core/register ./test/**/*.js"
@@ -16,15 +16,16 @@
   "main": "generators/index.js",
   "keywords": [
     "yeoman-generator",
-    "Node",
-    "Babel",
-    "Express",
+    "node",
+    "babel",
+    "express",
     "kyper",
-    "mocha"
+    "ES6",
+    "ESNext"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
-    "lodash": "^4.5.0",
+    "lodash": "^4.9.0",
     "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.2"
   },

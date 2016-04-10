@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 /**
  * New project page
  */
 
-export function index(req, res){
-	res.json({message: 'Success'});
-};
+export function index (req, res) {
+	res.json({message: 'Success'})
+}
